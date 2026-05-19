@@ -1,21 +1,42 @@
 package com.jdc.mkt.abstraction;
 
-public class Main {
+public class AbstractDemo {
 
 	public static void main(String[] args) {
-		Animal animal = new Pet();
+		
+//		Animal an = new Cat();
+//		an.eat();
+		
+		Animal animal = new Animal() {
+
+			@Override
+			void eat() {
+				System.out.println("Animal using");
+			}
+			
+		};
 		animal.eat();
-		animal.show();
-		Animal.hide();
+		
 	}
 }
 
+class Cat extends Pet{
+
+	@Override
+	void eat() {
+		System.out.println("Cat using");
+	}
+	
+}
+abstract  class Pet extends Animal {}
+
+@SuppressWarnings("unused")
 abstract class Animal {
 	
 	String name;
 	private static int age;
 	
-	Animal(){
+	 Animal(){
 		System.out.println("Using Animal Constructor");
 	}
 
@@ -30,10 +51,3 @@ abstract class Animal {
 	}
 }
 
-class Pet extends Animal {
-
-	@Override
-	void eat() {
-		System.out.println("Feeding from Owner");
-	}
-}

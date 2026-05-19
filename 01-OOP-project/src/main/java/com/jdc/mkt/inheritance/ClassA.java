@@ -1,7 +1,7 @@
 package com.jdc.mkt.inheritance;
 
 @SuppressWarnings("unused")
-public class ClassA {
+public  class ClassA {
 
 	private String value;
 	
@@ -14,7 +14,7 @@ public class ClassA {
 		this.value = value;
 	}
 	
-	void useA() {
+	final void useA() {
 		
 	}
 }
