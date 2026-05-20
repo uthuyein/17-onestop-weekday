@@ -1,9 +1,11 @@
 package com.jdc.mkt.window;
 
-public class WindowVista extends WindowFactory{
+public class WindowVista extends Window{
 
 	@Override
-	public void createCheckbox() {
-		System.out.println("Create checkbox with black and white color !");
+	public void createWindow() {
+		System.out.println("Create window with window vista");
 	}
+
+	
 }

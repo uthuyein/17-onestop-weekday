@@ -1,10 +1,10 @@
 package com.jdc.mkt.window;
 
-public class WindowEleven extends WindowFactory{
-
+public class WindowEleven extends Window{
+	
 	@Override
-	public void createCheckbox() {
-		System.out.println("Create checkbox with red color !");
+	public void createWindow() {
+		System.out.println("Create window with window eleven");
 	}
 
 }
