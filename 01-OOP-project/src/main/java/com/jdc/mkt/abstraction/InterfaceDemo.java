@@ -18,9 +18,10 @@ public class InterfaceDemo {
 		Worker.show();
 	}
 }
-
-interface Worker {
-	public static final int value = 20;
+interface Actor{}
+interface Actio{}
+interface Worker extends Actio,Actor{
+	 int value = 20;
 
 	default void doSomething() {
 		System.out.println("Do something from worker");
@@ -29,6 +30,8 @@ interface Worker {
 	static void show() {
 		System.out.println("Show something from worker");
 	}
+	
+	private void use() {}
 
 	void doWork();
 }
