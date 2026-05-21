@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.jdc.mkt.mac.Mac;
 import com.jdc.mkt.window.Window;
 
+@SuppressWarnings("resource")
 public class Main {
 
 	public static void main(String[] args) {

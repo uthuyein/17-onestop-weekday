@@ -31,6 +31,7 @@ interface Worker extends Actio,Actor{
 		System.out.println("Show something from worker");
 	}
 	
+	@SuppressWarnings("unused")
 	private void use() {}
 
 	void doWork();
