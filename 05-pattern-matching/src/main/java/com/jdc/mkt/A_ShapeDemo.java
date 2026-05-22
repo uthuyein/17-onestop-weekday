@@ -1,5 +1,6 @@
 package com.jdc.mkt;
 
+@SuppressWarnings("unused")
 public class A_ShapeDemo {
 	public static void main(String[] args) {
 //		Implicit
