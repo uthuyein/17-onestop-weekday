@@ -1,4 +1,8 @@
-package com.jdc.mkt;
+package com.jdc.mkt.with_if;
+
+import com.jdc.mkt.Square;
+import com.jdc.mkt.Triangle;
+import com.jdc.mkt.Shape;
 
 public class B_ShapeDemo {
 	public static void main(String[] args) {
@@ -6,7 +10,7 @@ public class B_ShapeDemo {
 		System.out.println(area);
 	}
 	
-	static double areaWithRecordPattern(Shapes shape) {
+	static double areaWithRecordPattern(Shape shape) {
 		if(shape instanceof Triangle(double b,double h)) {
 			return (b*h)/2;
 			
@@ -16,7 +20,8 @@ public class B_ShapeDemo {
 		}
 		return 0;
 	}
-	static double areaWithoutRecordPattern(Shapes shape) {
+	
+	static double areaWithoutRecordPattern(Shape shape) {
 		if(shape instanceof Triangle t) {
 			return (t.base()*t.height())/2;
 			
@@ -28,11 +33,3 @@ public class B_ShapeDemo {
 	}
 }
 
-sealed interface Shapes permits Triangle, Square {
-}
-
-record Triangle(double height, double base) implements Shapes {
-}
-
-record Square(double width) implements Shapes {
-}

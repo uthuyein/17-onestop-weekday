@@ -1,4 +1,4 @@
-package com.jdc.mkt;
+package com.jdc.mkt.with_if;
 
 @SuppressWarnings("unused")
 public class A_ShapeDemo {
