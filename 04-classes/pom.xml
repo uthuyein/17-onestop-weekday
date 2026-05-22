@@ -33,5 +33,6 @@
   <modules>
   	<module>01-enum-test</module>
   	<module>02-annotation-test</module>
+  	<module>03-record-sealed-test</module>
   </modules>
 </project>

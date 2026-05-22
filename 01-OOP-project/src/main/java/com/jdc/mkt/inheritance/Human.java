@@ -1,7 +1,7 @@
 package com.jdc.mkt.inheritance;
 
 @SuppressWarnings("unused")
-public class Human {
+public class Human  {
 	
 	private String name;
 	
@@ -10,6 +10,13 @@ public class Human {
 		name = null;
 		
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+	
+	
 	
 //	Human(String name){
 //		this.name = name;
