@@ -1,5 +1,6 @@
 package com.jdc.mkt;
 
+@SuppressWarnings("unused")
 public class B_CreateGeneric {
 	
 	public static void main(String[] args) {
