@@ -1,5 +1,4 @@
 # 17-onestop-weekday
-For Batch 17
 ArrayList	                    
   Fast random access O(1) but slow insert/delete in the middle (O(n)).Mostly read operations.
   
