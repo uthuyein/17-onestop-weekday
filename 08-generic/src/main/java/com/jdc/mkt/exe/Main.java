@@ -3,7 +3,7 @@ package com.jdc.mkt.exe;
 public class Main {
 
 	public static void main(String[] args) {
-		
+
 		Educator<Professor> prof = new Educator<>(new Professor());
 		Educator<Teacher> teacher = new Educator<>(new Teacher());
 
@@ -31,8 +31,6 @@ class Educator<T extends Job> {
 		job.doJob();
 	}
 }
-
-
 
 class Professor implements Job {
 
