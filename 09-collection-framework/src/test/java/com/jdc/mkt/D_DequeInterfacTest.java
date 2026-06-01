@@ -2,7 +2,6 @@ package com.jdc.mkt;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.LinkedList;
 
 import org.junit.jupiter.api.Test;
 

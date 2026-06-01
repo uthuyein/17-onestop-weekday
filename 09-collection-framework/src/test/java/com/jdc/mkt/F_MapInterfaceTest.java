@@ -1,10 +1,8 @@
 package com.jdc.mkt;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.TreeMap;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +12,10 @@ public class F_MapInterfaceTest {
 	
 	@Test
 	void test() {
-		map = new LinkedHashMap<Integer, String>();
+		map = new HashMap<Integer, String>();
+//		map = new LinkedHashMap<Integer, String>();
+//		map = new TreeMap<Integer, String>();
+		
 		add();
 		show("Hash Map");
 	}
