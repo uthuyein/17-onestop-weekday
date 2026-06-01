@@ -12,6 +12,7 @@ public class B_ListInterfaceTest {
 	private List<String> list;
 	
 	@Test
+	@Disabled
 	void testRemove() {
 		list = getList("array");
 		
@@ -30,7 +31,7 @@ public class B_ListInterfaceTest {
 	}
 
 	@Test
-	@Disabled
+//	@Disabled
 	void testAddAndShowAll() {
 
 		list = getList("array");
@@ -38,7 +39,8 @@ public class B_ListInterfaceTest {
 		
 //		add with index
 		list.add(1,"Patick");
-	
+		int index = list.indexOf("John");
+		System.out.println(index);
 		showData("Array List");
 		
 		list = getList("link");

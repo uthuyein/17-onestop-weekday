@@ -13,6 +13,7 @@ public class A_SetInterfaceTest {
 	private Set<String> set;
 	
 	@Test
+	@Disabled
 	void testRemove() {
 		set = getSet("hash");
 		
@@ -30,19 +31,19 @@ public class A_SetInterfaceTest {
 	}
 
 	@Test
-	@Disabled
+//	@Disabled
 	void testAddAndShowAll() {
 
 		set = getSet("hash");
-		addData("Andrew", "John", "William", "John");
+		addData( "John", "William","Andrew", "John");
 		showData("Hash");
 		
 		set = getSet("link");
-		addData("Andrew", "John", "William","William");
+		addData( "John", "William","Andrew", "John");
 		showData("Link");
 
 		set = getSet("tree");
-		addData("AA", "BB", "CC","AA");
+		addData("John", "William","Andrew", "John");
 		showData("Tree");
 	}
 
