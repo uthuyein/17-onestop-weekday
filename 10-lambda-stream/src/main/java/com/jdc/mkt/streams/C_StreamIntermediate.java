@@ -1,5 +1,6 @@
 package com.jdc.mkt.streams;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -11,7 +12,32 @@ public class C_StreamIntermediate {
 	public static void main(String[] args) {
 //		useFilter();
 //		useMap();
-		useFlatMap();
+//		useFlatMap();
+//		useMapMultiVsFlatMap();
+		usePeek();
+	}
+	
+	static void usePeek() {
+		var sum = IntStream.of(1,2,3,4)
+				.peek(num -> System.out.println("use peek :: "+num))
+				.sum();
+		System.out.println("Total :: "+sum);
+	}
+	
+	static void useMapMultiVsFlatMap() {
+		List<String> list = List.of("A,B,C","A,b","D,E");
+		
+		var flats = list.stream()
+				.flatMap( m -> Arrays.stream(m.split(",")))
+				.toList();
+		System.out.println("Use FlatMap :: "+flats);
+		
+		var multi = list.stream().mapMulti((element,comsumer) -> {
+			for(String s : element.split(",")) {
+				comsumer.accept(s);
+			}
+		}).toList();
+		System.out.println("Use MapMulti :: "+multi);
 	}
 	
 	static void useFlatMap() {
@@ -57,9 +83,6 @@ public class C_StreamIntermediate {
 		.stream()
 		.filter(e -> e.startsWith("J"))
 		.forEach(System.out::println);
-		
-		
-		
-		
+				
 	}
 }

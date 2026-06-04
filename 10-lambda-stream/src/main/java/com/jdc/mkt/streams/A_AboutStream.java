@@ -9,6 +9,8 @@ public class A_AboutStream {
 		
 		System.out.println("Before Stream ::: "+beforeStream(list));
 		System.out.println("After Stream ::: "+afterStream(list));
+		
+		
 	}
 	
 //	Declarative
