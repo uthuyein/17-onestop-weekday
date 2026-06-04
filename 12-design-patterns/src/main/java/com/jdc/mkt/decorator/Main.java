@@ -3,6 +3,7 @@ package com.jdc.mkt.decorator;
 public class Main {
 
 	@SuppressWarnings("unused")
+//	This pattern is used for decoration object(milk,form) which is from simple(simple coffee) 
 	public static void main(String[] args) {
 		
 		Coffee simple = new SimpleCoffee();
