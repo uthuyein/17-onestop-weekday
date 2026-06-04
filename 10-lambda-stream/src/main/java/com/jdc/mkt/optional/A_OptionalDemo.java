@@ -10,6 +10,7 @@ public class A_OptionalDemo {
 //				.or(() -> Optional.ofNullable(new Data(11))).get();
 //				.get();
 //				.orElseThrow(() -> new RuntimeException("no data object"));
+		
 		var value = d.getValue();
 		System.out.println(value);
 		

@@ -32,7 +32,7 @@ public class B_ByteStreamTest extends OwnerFile {
 			
 			int i = 0;
 			while((i = in.read()) != -1) {
-				System.out.print((char)i);
+				System.out.print((char)i+"\t");
 			}
 						
 		} catch (Exception e) {

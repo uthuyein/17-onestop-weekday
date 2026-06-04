@@ -30,10 +30,14 @@ public class C_CharacterStreamTest extends OwnerFile {
 	private void readFile(File file) {
 		try (FileReader in = new FileReader(file)) {
 			
-			int i = 0;
-			while((i = in.read()) != -1) {
-				System.out.print((char)i);
+			while(in.ready()) {
+				System.out.println((char)in.read());
 			}
+			
+//			int i = 0;
+//			while((i = in.read()) != -1) {
+//				System.out.print((char)i);
+//			}
 						
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
