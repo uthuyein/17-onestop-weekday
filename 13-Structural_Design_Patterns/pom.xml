@@ -29,5 +29,11 @@
   </build>
   <modules>
   	<module>01-decorator-pattern</module>
+  	<module>02-adapter-pattern</module>
+  	<module>03-facade-pattern</module>
+  	<module>04-composite-pattern</module>
+  	<module>05-proxy-pattern</module>
+  	<module>06-bridge-pattern</module>
+  	<module>07-flyweight-pattern</module>
   </modules>
 </project>
