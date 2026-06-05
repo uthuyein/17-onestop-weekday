@@ -1,0 +1,71 @@
+
+About Database
+===============
+
+show databases;
+create database [if not exists] dbName
+drop database [if exists] dbName
+
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| name   | varchar(45) | YES  |     | NULL    |       |
+| age    | int         | YES  |     | NULL    |       |
+| dob    | date        | YES  |     | NULL    |       |
+| gender | varchar(45) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+
+show
+=====
+show create table user_tbl;
+
+create and drop Table
+============
+use dbName
+show tables
+create table [ if not exists ]tblName(colName type,..)
+desc / describe tblName
+drop table [if exists] tblName
+
+Update table
+==============
+// update table
+alter table (eg.user) rename  [TO | AS] new_tbl_name
+
+//add or delete column
+alter table (eg.user) add column (eg. gender varchar(45)) [first / after colName]
+
+alter table (eg.user) drop column (eg.gender)
+
+// update column
+alter table (eg.user) change column old_col(dob) new_col(birth date)
+alter table (eg.user) rename column old_col_name(birth) to new_col_name(dob)
+
+alter table (eg.user_tbl) modify column col_name(dob timestamp)
+
+
+// DML
+select
+=========
+select * from user_tbl
+select col_name,... or * from user_tbl (where col_name = col_value)
+
+insert
+==========
+insert (into) user_tbl (col_name,..)values(,...)
+
+delete
+==========
+delete from user_tbl (where col_name = col_value)
+
+update
+=========
+update user_tbl set col_name = col_value ,... (where col_name = col_value)
+
+
+
+
+
+
+
+
