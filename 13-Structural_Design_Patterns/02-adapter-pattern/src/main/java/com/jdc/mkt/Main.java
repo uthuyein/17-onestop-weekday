@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		DcPowerSource dc = new DcPowerSource();
-		dc.plugin();
+//		dc.plugin();
 		
 		AcPowerSource ac = new Adapter(dc);
 		ac.plugin();
