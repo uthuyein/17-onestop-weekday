@@ -25,6 +25,8 @@ create database posDb;
 	INSERT INTO contact_tbl (phone, state, township, address)
 	VALUES('0922334455', 'Ayeyarwady', 'Pathein', 'Strand Road');
 
+	select * from contact_tbl;
+
 	create table customer_tbl(
 		id int primary key auto_increment,
 		contact_id int,
@@ -43,6 +45,8 @@ create database posDb;
 	(4, 'Aung Aung', 'No Member'),
 	(5, 'Su Su', 'Silver');
 
+	select * from customer_tbl;
+
 	create table category_tbl(
 		id int primary key auto_increment,
 		name varchar(45) unique,
@@ -53,6 +57,8 @@ create database posDb;
 	VALUES
 	('Fruits'),
 	('Vegetables');
+
+	select * from category_tbl;
 
 	create table product_tbl(
 		id int primary key auto_increment,
@@ -81,6 +87,8 @@ create database posDb;
 	(2, 'Cabbage', 2.80, 'Large'),
 	(2, 'Broccoli', 3.20, 'Large');
 
+	select * from product_tbl;
+
 	create table sale_tbl(
 		vo_num varchar(45),
 		customer_id int,
@@ -93,6 +101,8 @@ create database posDb;
 		primary key(vo_num,customer_id),
 	    foreign key (customer_id) references customer_tbl(id)
 		);
+
+	select * from sale_tbl;
 
 	INSERT INTO sale_tbl
 	(vo_num, customer_id, sale_date, sale_time, sub_total, discount, total)
@@ -142,6 +152,8 @@ create database posDb;
 	(1, 'VO013', 3, 2, 5.00),
 	(2, 'VO013', 3, 5, 6.00),
 	(8, 'VO013', 3, 3, 6.60);
+
+	select * from sale_detail_tbl ;
 
 
 
