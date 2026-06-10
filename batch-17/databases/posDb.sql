@@ -11,28 +11,19 @@ create database posDb;
 		);
 
 	INSERT INTO contact_tbl (phone, state, township, address)
-	VALUES ('091234567', 'Yangon', 'Hlaing', 'No. 12, Insein Road');
-
-	INSERT INTO contact_tbl (phone, state, township, address)
-	VALUES('0987654321', 'Mandalay', 'Chanayethazan', '34th Street');
-
-	INSERT INTO contact_tbl (phone, state, township, address)
-	VALUES('09456789012', 'Shan', 'Taunggyi', 'Myoma Quarter');
-
-	INSERT INTO contact_tbl (phone, state, township, address)
-	VALUES('0970011223', 'Bago', 'Bago', 'Aung San Road');
-
-	INSERT INTO contact_tbl (phone, state, township, address)
-	VALUES('0922334455', 'Ayeyarwady', 'Pathein', 'Strand Road');
-
-	select * from contact_tbl;
+	VALUES 
+	('091234567', 'Yangon', 'Hlaing', 'No. 12, Insein Road'),
+	('0987654321', 'Mandalay', 'Chanayethazan', '34th Street'),
+	('09456789012', 'Shan', 'Taunggyi', 'Myoma Quarter'),
+	('0970011223', 'Bago', 'Bago', 'Aung San Road'),
+	('0922334455', 'Ayeyarwady', 'Pathein', 'Strand Road');
 
 	create table customer_tbl(
 		id int primary key auto_increment,
 		contact_id int,
 		name varchar(45) not null,
 		member_card enum('No Member','Silver','Gold','Diamond') default 'No Member',
-		isDelete tinyint(1) not null default 1,
+		isDelete tinyint(1) not null default 0,
 		foreign key(contact_id) references contact_tbl(id) 
 		ON DELETE CASCADE
 		);
@@ -45,12 +36,11 @@ create database posDb;
 	(4, 'Aung Aung', 'No Member'),
 	(5, 'Su Su', 'Silver');
 
-	select * from customer_tbl;
-
+	
 	create table category_tbl(
 		id int primary key auto_increment,
 		name varchar(45) unique,
-		isDelete tinyint(1) not null default 1
+		isDelete tinyint(1) not null default 0
 		);
 
 	INSERT INTO category_tbl (name)
@@ -58,15 +48,13 @@ create database posDb;
 	('Fruits'),
 	('Vegetables');
 
-	select * from category_tbl;
-
 	create table product_tbl(
 		id int primary key auto_increment,
 		category_id int,
 		name varchar(45) not null,
 		price double(7,2),
 		size set('Small','Medium','Large'),
-		isDelete tinyint(1) not null default 1,
+		isDelete tinyint(1) not null default 0,
 		foreign key(category_id) references category_tbl(id) 
 		ON UPDATE CASCADE
 		);
@@ -87,7 +75,6 @@ create database posDb;
 	(2, 'Cabbage', 2.80, 'Large'),
 	(2, 'Broccoli', 3.20, 'Large');
 
-	select * from product_tbl;
 
 	create table sale_tbl(
 		vo_num varchar(45),
@@ -97,13 +84,12 @@ create database posDb;
 		sub_total double(8,2),
 		discount double(4,2),
 		total double(8,2),
-		isDelete tinyint(1) not null default 1,
+		isDelete tinyint(1) not null default 0,
 		primary key(vo_num,customer_id),
 	    foreign key (customer_id) references customer_tbl(id)
 		);
 
-	select * from sale_tbl;
-
+	
 	INSERT INTO sale_tbl
 	(vo_num, customer_id, sale_date, sale_time, sub_total, discount, total)
 	VALUES
@@ -130,7 +116,6 @@ create database posDb;
 		sale_tbl(vo_num,customer_id) ON DELETE CASCADE
 		);
 
-
 	INSERT INTO sale_detail_tbl
 	(product_id, vo_num, customer_id, qty, total)
 	VALUES
@@ -153,7 +138,46 @@ create database posDb;
 	(2, 'VO013', 3, 5, 6.00),
 	(8, 'VO013', 3, 3, 6.60);
 
+	select * from contact_tbl;
+	select * from customer_tbl;
+	select * from category_tbl;
+	select * from product_tbl;
+	select * from sale_tbl;
 	select * from sale_detail_tbl ;
+
+	-- Join 
+	-- Projection
+	select c.name cateogry,p.name product,p.price from category_tbl c 
+	join product_tbl p on c.id = p.category_id;
+
+	-- Projection with predicate
+	select cu.name customer,co.state,co.township from customer_tbl cu 
+	join contact_tbl co on cu.contact_id = co.id 
+	where co.township in('Taunggyi','Bago','Pathein');
+
+	select p.name,cu.name from customer_tbl cu 
+	join sale_tbl s on s.customer_id = cu.id 
+	join sale_detail_tbl sd on sd.vo_num = s.vo_num 
+	and sd.customer_id = s.customer_id 
+	join product_tbl p on p.id = sd.product_id 
+	where cu.name = 'Aung Aung';
+
+
+	-- Aggregate function (sum(),count(),min(),max(),avg())
+	select max(total) from sale_tbl;
+	select sum(total) from sale_tbl where sale_date = '2026-06-01';
+	select sum(total) from sale_tbl where sale_date 
+	between '2026-06-01' and '2026-06-05';
+
+
+
+
+
+
+
+
+
+
 
 
 
