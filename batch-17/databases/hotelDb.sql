@@ -5,9 +5,9 @@ table =>
 	3.contact_tbl(id,pri_phone,sec_phone,email)
 	4.customer_info_tbl(id,cu_id(fk),address_id(fk),contact_id(id))
 
-	5.facility_tbl(id,name,aircon,freezer,shower_room,remark)
+	5.facility_tbl(id,name,aircon,freezer,bathroom,extrabed,breakfast,remark)
 	6.room_type_tbl(id,name,facility_id(fk),price,max_occupancy(3))
-	7.rooms_tbl(id,name,room_type_id(fk),status(Available,Booked,Maintenace))
+	7.rooms_tbl(id,name,room_type_id(fk),status(Available,Booked,Maintenace),remark)
 
 	8.hotel_tbl(id,name,phone,address)
 
