@@ -27,6 +27,7 @@ create database posDb;
 		foreign key(contact_id) references contact_tbl(id) 
 		ON DELETE CASCADE
 		);
+
 	-- Customer data
 	INSERT INTO customer_tbl (contact_id, name, member_card)
 	VALUES
@@ -36,17 +37,27 @@ create database posDb;
 	(4, 'Aung Aung', 'No Member'),
 	(5, 'Su Su', 'Silver');
 
-	
 	create table category_tbl(
 		id int primary key auto_increment,
 		name varchar(45) unique,
-		isDelete tinyint(1) not null default 0
+		category_id int,
+		isDelete tinyint(1) not null default 0,
+		foreign key(category_id) references category_tbl(id)
 		);
 
-	INSERT INTO category_tbl (name)
+	INSERT INTO category_tbl (name,category_id)
 	VALUES
-	('Fruits'),
-	('Vegetables');
+	('Fruits',null),
+	('Vegetables',null),
+	-- Fruits
+	('Citrus Fruits', 1),
+	('Tropical Fruits', 1),
+	('Berries', 1),
+
+	-- Vegetables
+	('Leafy Vegetables', 2),
+	('Root Vegetables', 2),
+	('Fruit Vegetables', 2);
 
 	create table product_tbl(
 		id int primary key auto_increment,
@@ -61,19 +72,29 @@ create database posDb;
 
 	INSERT INTO product_tbl (category_id, name, price, size)
 	VALUES
-	-- Fruits
-	(1, 'Apple', 2.50, 'Small'),
-	(1, 'Banana', 1.20, 'Medium'),
-	(1, 'Orange', 2.00, 'Medium'),
-	(1, 'Mango', 3.50, 'Large'),
-	(1, 'Watermelon', 5.00, 'Large'),
+	-- Citrus Fruits (id=3)
+	(3, 'Orange', 2.50, 'Medium'),
+	(3, 'Lemon', 1.50, 'Small'),
 
-	-- Vegetables
-	(2, 'Carrot', 1.50, 'Small'),
-	(2, 'Potato', 1.80, 'Medium'),
-	(2, 'Tomato', 2.20, 'Medium'),
-	(2, 'Cabbage', 2.80, 'Large'),
-	(2, 'Broccoli', 3.20, 'Large');
+	-- Tropical Fruits (id=4)
+	(4, 'Mango', 3.50, 'Large'),
+	(4, 'Banana', 1.20, 'Medium'),
+	(4, 'Papaya', 2.80, 'Large'),
+
+	-- Berries (id=5)
+	(5, 'Strawberry', 4.50, 'Small'),
+
+	-- Leafy Vegetables (id=6)
+	(6, 'Spinach', 1.80, 'Medium'),
+	(6, 'Mustard Greens', 2.20, 'Large'),
+
+	-- Root Vegetables (id=7)
+	(7, 'Carrot', 1.50, 'Small'),
+	(7, 'Potato', 1.70, 'Medium'),
+
+	-- Fruit Vegetables (id=8)
+	(8, 'Tomato', 2.20, 'Medium'),
+	(8, 'Cucumber', 1.80, 'Medium');
 
 
 	create table sale_tbl(
@@ -147,8 +168,10 @@ create database posDb;
 
 	-- Join 
 	-- Projection
-	select c.name cateogry,p.name product,p.price from category_tbl c 
-	join product_tbl p on c.id = p.category_id;
+	select parent.name as main_category,child.name as sub_category,p.name, p.price from product_tbl p
+	join category_tbl child on p.category_id = child.id
+	join category_tbl parent on child.category_id = parent.id;
+
 
 	-- Projection with predicate
 	select cu.name customer,co.state,co.township from customer_tbl cu 
