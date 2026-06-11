@@ -168,10 +168,10 @@ create database posDb;
 
 	-- Join 
 	-- Projection
-	select parent.name as main_category,child.name as sub_category,p.name, p.price from product_tbl p
-	join category_tbl child on p.category_id = child.id
-	join category_tbl parent on child.category_id = parent.id;
-
+	select main.name as main_category,sub.name as sub_category,p.name,p.price 
+	from product_tbl p 
+	join category_tbl sub on sub.id = p.category_id 
+	join category_tbl main on main.id = sub.category_id;
 
 	-- Projection with predicate
 	select cu.name customer,co.state,co.township from customer_tbl cu 
@@ -185,12 +185,74 @@ create database posDb;
 	join product_tbl p on p.id = sd.product_id 
 	where cu.name = 'Aung Aung';
 
+	-- Prdicate ,Projection with order by
+	select cu.name,p.name,p.price,sd.qty,(p.price*sd.qty)as total from product_tbl p 
+	join sale_detail_tbl sd on sd.product_id = p.id 
+	join sale_tbl s on s.vo_num = sd.vo_num 
+	and s.customer_id = sd.customer_id 
+	join customer_tbl cu on cu.id = s.customer_id 
+	join contact_tbl c on c.id = cu.contact_id 
+	where c.township = 'Bago' and s.sale_date = '2026-06-03'
+	order by p.name desc;
+
 
 	-- Aggregate function (sum(),count(),min(),max(),avg())
 	select max(total) from sale_tbl;
 	select sum(total) from sale_tbl where sale_date = '2026-06-01';
 	select sum(total) from sale_tbl where sale_date 
 	between '2026-06-01' and '2026-06-05';
+
+	-- Aggregate function with projection
+	select p.name as name,sum(sd.qty) as total from product_tbl p 
+	join sale_detail_tbl sd on sd.product_id = p.id 
+	group by name order by total desc;
+
+	-- 1.who brought most expensive product ?
+	select cu.name,p.name,p.price from product_tbl p 
+	join sale_detail_tbl sd on sd.product_id = p.id 
+	join sale_tbl s on s.vo_num = sd.vo_num and s.customer_id = sd.customer_id 
+	join customer_tbl cu on cu.id = s.customer_id 
+	where p.price = (select max(p.price) from product_tbl p);
+
+	-- 2.name of product which is the most selling qty between two date.
+	select p.name  from product_tbl p 
+	join sale_detail_tbl sd on sd.product_id = p.id 
+	join sale_tbl s  on s.vo_num = sd.vo_num and s.customer_id = sd.customer_id 
+	where sd.qty = (
+		select max(sd.qty) from sale_tbl s 
+		join sale_detail_tbl sd  
+		on s.vo_num = sd.vo_num and s.customer_id = sd.customer_id 
+		where s.sale_date  between '2026-06-01' and '2026-06-05') ;
+
+	-- Question for project and predicate
+	1.p.name,p.price,sum(sd.qty) 
+	where cu.member_card != 'Silver'
+
+	2.cu.name,p.name 
+	where c.name = 'Root Vegetables'
+
+	3. select p.name ,p.price
+	where p.name is not start with p
+
+	4.select s.sale_date 
+	where cu.name is start with 'a'
+
+	select cu.name,p.name,sum(sd.qty) from product_tbl p
+	join sale_detail_tbl sd on sd.product_id = p.id 
+	join sale_tbl s on s.vo_num = sd.vo_num and s.customer_id = sd.customer_id 
+	join customer_tbl cu on cu.id = s.customer_id 
+	where sd.qty > (select avg(sd.qty) from sale_detail_tbl sd)
+	group by cu.name,p.name;
+
+
+	-- Like ,member of()
+	select * from customer_tbl where lower(name) like lower('A%');
+
+	-- select 'Gold'  member of ('["Silver","Gold"]');
+
+
+
+
 
 
 
