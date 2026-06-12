@@ -9,17 +9,18 @@ import com.jdc.mkt.Person;
 
 public class C_Reference_Satement {
 
-	private static List<Person> persons = new ArrayList<Person>();
-
+	
 	public static List<Person> selectBy(Integer id,String name, Integer age) {
 
 		StringBuilder sb = new StringBuilder("select * from person_tbl where 1=1");
-		
+		List<Person> persons = new ArrayList<Person>();
+	
 		try (var con = Connector.getConnectionWithProperties();
 				var stmt = con.createStatement()) {
 
 			if (null != name) {
-				sb.append( " and lower(name) like lower('%s')".formatted(name.concat("%")));
+				sb.append(" and lower(name) like lower('%s')"
+						.formatted(name.concat("%")));
 			}
 			if (null != age && age > 0) {
 				sb.append(" and age >= %d".formatted(age));
@@ -32,9 +33,9 @@ public class C_Reference_Satement {
 			
 			while(rs.next()) {
 				Person p = new Person(
-						rs.getInt(1),
-						rs.getString(2),
-						rs.getInt(3));
+						rs.getInt("id"),
+						rs.getString("name"),
+						rs.getInt("age"));
 				
 				persons.add(p);
 			}
