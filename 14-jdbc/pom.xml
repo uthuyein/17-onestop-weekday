@@ -12,6 +12,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.42</version>
+		</dependency>
+		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
 			<version>6.1.0</version>
@@ -38,5 +43,6 @@
 	</build>
 	<modules>
 		<module>01-about-statment</module>
+		<module>02-pos</module>
 	</modules>
 </project>

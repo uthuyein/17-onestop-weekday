@@ -20,8 +20,5 @@ public class JunitFactory {
 				new Person("William",40),
 				new Person("John",31));
 		
-		for(int a : array) {
-			System.out.println("Result ::"+a);
-		}
 	}
 }
