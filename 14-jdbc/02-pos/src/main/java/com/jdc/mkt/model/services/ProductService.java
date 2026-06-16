@@ -40,7 +40,6 @@ public class ProductService implements DbOperation<Product> {
 	@Override
 	public int update(Product p) {
 		String sql = "update product_tbl set name= ?,price = ?,size = ? where id = ?";
-//		var product = searchById(p.getId());
 
 		try (var con = getConnection(); var stmt = con.prepareStatement(sql)) {
 
@@ -111,31 +110,6 @@ public class ProductService implements DbOperation<Product> {
 		return list;
 	}
 
-	@Override
-	public Product searchById(int id) {
-		String query = """
-				select p.id,p.name,p.price,p.size,c.id,c.name
-				from product_tbl p join catgory_tbl c on p.category_id = c.id
-				where p.isDelete = 0 and p.id = ?
-				""";
-		try (var con = getConnection(); var stmt = con.prepareStatement(query)) {
-
-			stmt.setInt(1, id);
-			var rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				var category = new Category(rs.getInt("c.id"), rs.getString("c.name"), false);
-				var product = new Product(rs.getInt("p.id"), rs.getString("p.name"), rs.getDouble("p.price"),
-						Size.valueOf(rs.getString("p.size")), category);
-
-				return product;
-			}
-
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-		}
-
-		return null;
-	}
+	
 
 }
