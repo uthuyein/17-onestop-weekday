@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 public class Product {
 
-	private int id;
+	private Integer id;
 	@NonNull
 	private String name;
 	@NonNull

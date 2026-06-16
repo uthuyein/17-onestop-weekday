@@ -12,43 +12,50 @@ import com.jdc.mkt.model.Product.Size;
 import com.jdc.mkt.model.services.DbOperation;
 import com.jdc.mkt.model.services.ProductService;
 
-public class ProductTest extends ProductFactory{
+public class ProductTest extends ProductFactory {
 
 	private DbOperation<Product> service = new ProductService();
-	
+
 	@Order(1)
 	@ParameterizedTest
-	@CsvSource({
-		"5,bluebarries,3.4,Medium,13"
-	})
-	void insertTest(int catId,String name,Double price,String size,int res) {
+	@CsvSource({ "5,bluebarries,3.4,Medium,13" })
+	void insertTest(int catId, String name, Double price, String size, int res) {
 		var category = new Category();
 		category.setId(catId);
-		
-		var product = new Product(name, price, Size.Medium);
+
+		var product = new Product(name, price, Size.valueOf(size));
 		product.setCategory(category);
-		
+
 		var id = service.save(product);
 		assertEquals(res, id);
 	}
-	
+
 	@Order(2)
-	void updateTest(String name,Integer price,String size,int res) {
+	@ParameterizedTest
+	@CsvSource({ "5,13,bluebarry,3.5,Large,1" })
+	void updateTest(Integer catId, Integer prodId,String name, Double price, String size, int res) {
+
+		var category = new Category();
+		category.setId(catId);
+
+		var product = new Product(
+				prodId,
+				name,
+				price, 
+				Size.valueOf(size),
+				category);
 		
+		var row = service.update(product);
+		assertEquals(res, row);
 	}
-	
+
 	@Order(3)
-	void deleteTest(int id,int res) {
-		
+	void deleteTest(int id, int res) {
+
 	}
-	
+
 	@Order(4)
-	void selectTest(String category,
-			String product,
-			Integer pricefrom,
-			Integer priceTo,
-			String size,
-			int res) {
-		
+	void selectTest(String category, String product, Integer pricefrom, Integer priceTo, String size, int res) {
+
 	}
 }

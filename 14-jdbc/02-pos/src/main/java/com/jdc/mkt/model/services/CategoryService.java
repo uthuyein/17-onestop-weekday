@@ -21,4 +21,10 @@ public class CategoryService  implements DbOperation<Category>{
 		return null;
 	}
 
+	@Override
+	public Category searchById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

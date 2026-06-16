@@ -11,20 +11,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class ProductFactory {
-
-	private static String catQuery = """
-			INSERT INTO category_tbl (name,category_id)
-			VALUES
-			('Fruits',null),
-			('Vegetables',null),
-			('Citrus Fruits', 1),
-			('Tropical Fruits', 1),
-			('Berries', 1),
-		
-			('Leafy Vegetables', 2),
-			('Root Vegetables', 2),
-			('Fruit Vegetables', 2);	
-			""";
 	
 	private static String prodQuery = """
 			INSERT INTO product_tbl (category_id, name, price, size)
@@ -62,7 +48,6 @@ public class ProductFactory {
 	private static void executeProduct() {
 		String checkForeignKeyFalse = "set foreign_key_checks = 0";
 		String truncateProduct = "truncate table product_tbl";
-		String truncateCategory = "truncate table category_tbl";
 		String checkForeignKeyTrue = "set foreign_key_checks = 1";
 		
 		try(var con = Connector.getConnection();
@@ -70,8 +55,6 @@ public class ProductFactory {
 			
 			stmt.addBatch(checkForeignKeyFalse);
 			stmt.addBatch(truncateProduct);
-			stmt.addBatch(truncateCategory);
-			stmt.addBatch(catQuery);
 			stmt.addBatch(prodQuery);
 			stmt.addBatch(checkForeignKeyTrue);
 			
