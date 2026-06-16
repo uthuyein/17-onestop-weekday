@@ -12,14 +12,14 @@ import com.jdc.mkt.model.Product.Size;
 import com.jdc.mkt.model.services.DbOperation;
 import com.jdc.mkt.model.services.ProductService;
 
-public class ProductTest extends JunitFactory{
+public class ProductTest extends ProductFactory{
 
 	private DbOperation<Product> service = new ProductService();
 	
 	@Order(1)
 	@ParameterizedTest
 	@CsvSource({
-		"5,bluebarries,3.4,Medium,"
+		"5,bluebarries,3.4,Medium,13"
 	})
 	void insertTest(int catId,String name,Double price,String size,int res) {
 		var category = new Category();
