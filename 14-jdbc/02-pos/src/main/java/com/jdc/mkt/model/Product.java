@@ -8,12 +8,20 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @RequiredArgsConstructor
-public class Category {
+@AllArgsConstructor
+public class Product {
 
-	private Integer id;	
+	private int id;
 	@NonNull
-	private  String name;
-	private Boolean isDelete;
+	private String name;
+	@NonNull
+	private Double price;
+	@NonNull
+	private Size size;
+	private Category category;
+	
+	public enum Size{
+		Small,Medium,Large
+	}
 }

@@ -64,7 +64,7 @@ create database posDb;
 		category_id int,
 		name varchar(45) not null,
 		price double(7,2),
-		size set('Small','Medium','Large'),
+		size enum('Small','Medium','Large'),
 		isDelete tinyint(1) not null default 0,
 		foreign key(category_id) references category_tbl(id) 
 		ON UPDATE CASCADE
