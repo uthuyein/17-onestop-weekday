@@ -3,17 +3,13 @@ package com.jdc.mkt.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 public class Category {
 
-	private Integer id;	
-	@NonNull
-	private  String name;
+	private Integer id;
+	private String name;
 	private Boolean isDelete;
 }

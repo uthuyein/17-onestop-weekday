@@ -60,7 +60,7 @@ public class ProductService implements DbOperation<Product> {
 	public List<Product> searchBy(Product p) {
 		var sb = new StringBuilder( """
 				select p.id,p.name,p.price,p.size,c.id,c.name
-				from product_tbl p join catgory_tbl c on p.category_id = c.id
+				from product_tbl p join category_tbl c on p.category_id = c.id
 				where p.isDelete = 0
 				""");
 		

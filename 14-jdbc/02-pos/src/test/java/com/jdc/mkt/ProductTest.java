@@ -23,7 +23,11 @@ public class ProductTest extends ProductFactory {
 		var category = new Category();
 		category.setId(catId);
 
-		var product = new Product(name, price, Size.valueOf(size));
+		var product = new Product();
+		product.setName(name);
+		product.setPrice(price);
+		product.setSize(null != size ? Size.valueOf(size): null);
+		product.setCategory(category);
 		product.setCategory(category);
 
 		var id = service.save(product);
@@ -55,7 +59,23 @@ public class ProductTest extends ProductFactory {
 	}
 
 	@Order(4)
-	void selectTest(String category, String product, Integer pricefrom, Integer priceTo, String size, int res) {
-
+	@ParameterizedTest
+	@CsvSource({ 
+		"Berries,,,2",
+		",s,,2",
+		"Root Vegetables,c,,1",
+		",,Small,3"
+	})
+	void searchTest(String cName, String pName, String size, int res) {
+		var category = new Category();
+		category.setName(cName);
+	
+		var product = new Product( );
+		product.setName(pName);
+		product.setSize(null != size ? Size.valueOf(size): null);
+		product.setCategory(category);
+		
+		var list = service.searchBy(product);
+		assertEquals(res, list.size());
 	}
 }

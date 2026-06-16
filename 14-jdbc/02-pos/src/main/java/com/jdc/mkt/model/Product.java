@@ -3,21 +3,18 @@ package com.jdc.mkt.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
 @AllArgsConstructor
 public class Product {
 
 	private Integer id;
-	@NonNull
+	
 	private String name;
-	@NonNull
+	
 	private Double price;
-	@NonNull
+	
 	private Size size;
 	private Category category;
 	
