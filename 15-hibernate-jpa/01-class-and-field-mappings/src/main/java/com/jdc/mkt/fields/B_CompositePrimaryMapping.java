@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
-@Entity
+//@Entity
 @Table(name = "product_tbl")
 @IdClass(D_IDClass.class)
 public class B_CompositePrimaryMapping implements Serializable{

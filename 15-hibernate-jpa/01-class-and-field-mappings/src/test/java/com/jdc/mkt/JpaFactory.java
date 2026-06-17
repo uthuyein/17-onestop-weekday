@@ -3,6 +3,8 @@ package com.jdc.mkt;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import com.jdc.mkt.fields.E_ColumnMapping.Member;
+
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
@@ -16,5 +18,8 @@ public class JpaFactory {
 	}
 	
 	@Test
-	void test() {}
+	void test() {
+		System.out.println(Member.Silver.ordinal());
+		
+	}
 }

@@ -1,6 +1,5 @@
 package com.jdc.mkt.fields;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -8,7 +7,7 @@ import jakarta.persistence.TableGenerator;
 import lombok.Data;
 
 @Data
-@Entity
+//@Entity
 @Table(name = "category_tbl")
 public class A_PrimaryKeyMapping {
 

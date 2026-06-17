@@ -1,7 +1,6 @@
 package com.jdc.mkt.classes;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.SecondaryTables;
@@ -9,7 +8,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
-@Entity
+//@Entity
 @Table(name = "student_info_tbl")
 @SecondaryTables({
 	@SecondaryTable(name = "address_tbl"),

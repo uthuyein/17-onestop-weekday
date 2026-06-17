@@ -3,7 +3,9 @@ package com.jdc.mkt.fields;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
 import lombok.Data;
 
@@ -16,4 +18,7 @@ public class C_EmbeddableClass implements Serializable{
 	private String name;
 	private LocalDate date;
 	private LocalTime time;
+	
+	@ElementCollection
+	private List<String> list;
 }

@@ -1,6 +1,5 @@
 package com.jdc.mkt.classes;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
@@ -8,7 +7,7 @@ import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 
 @Data
-@Entity
+//@Entity
 @Table(name = "student_tbl",
 		indexes = {
 				@Index(columnList = "nrc")
