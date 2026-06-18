@@ -3,7 +3,6 @@ package com.jdc.mkt.model;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -16,8 +15,8 @@ public class SaleDetails {
 	private SaleDetailPk id;
 
 	@ManyToOne
-	@MapsId("productId")
 	private Product product;
+	
 	@ManyToOne
 	private Sale sales;
 	private int qty;
