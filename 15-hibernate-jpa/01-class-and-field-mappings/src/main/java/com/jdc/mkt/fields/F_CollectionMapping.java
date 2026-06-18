@@ -10,8 +10,6 @@ import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
@@ -23,7 +21,7 @@ import jakarta.persistence.OrderColumn;
 import lombok.Data;
 
 @Data
-@Entity
+//@Entity
 public class F_CollectionMapping {
 	
 	@Id

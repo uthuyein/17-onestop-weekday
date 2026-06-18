@@ -1,12 +1,10 @@
-package com.jdc.mkt.model;
+package com.jdc.mkt.relations;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -17,15 +15,15 @@ import lombok.Data;
 public class Category {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(nullable = false,length = 45,unique = true)
 	private String name;
 	
-	@Column(columnDefinition = "tinyint(1) default 0")
-	private boolean isDelete;
-	
+//	Collection type (OneToMany | ManyToMany)
+//	Default => Join table
 	@OneToMany(mappedBy = "category")
 	private List<Product> products;
+	
+	@ManyToMany
+	private List<ProductSize> sizes;
+	
 }

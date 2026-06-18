@@ -1,31 +1,30 @@
 package com.jdc.mkt.model;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "category_tbl")
-public class Category {
+@Table(name = "contact_tbl")
+public class Contact {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	private String state;
+	@Column(length = 45,nullable = false)
+	private String township;
+	@Column(length = 45,nullable = false)
+	private String address;
+	@Column(length = 45,nullable = false)
+	private String phone;
 	
-	@Column(nullable = false,length = 45,unique = true)
-	private String name;
-	
-	@Column(columnDefinition = "tinyint(1) default 0")
-	private boolean isDelete;
-	
-	@OneToMany(mappedBy = "category")
-	private List<Product> products;
+	@OneToOne
+	private Customer customer;
 }
