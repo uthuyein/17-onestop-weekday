@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -23,7 +24,9 @@ public class Student {
 	@Column(nullable = false,length = 45)
 	private String name;
 	private LocalDate dob;
+	
 	@OneToOne
+//	@PrimaryKeyJoinColumn //can share and used student id from contact
 	private Contact contact;
 	@ManyToOne
 	private Address address;

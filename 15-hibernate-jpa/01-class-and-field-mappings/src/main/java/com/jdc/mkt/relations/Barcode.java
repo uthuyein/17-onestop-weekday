@@ -1,6 +1,5 @@
 package com.jdc.mkt.relations;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -8,7 +7,7 @@ import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
-@Entity
+//@Entity
 public class Barcode {
 
 	@Id

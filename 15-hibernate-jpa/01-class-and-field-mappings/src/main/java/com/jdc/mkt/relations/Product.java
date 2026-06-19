@@ -1,13 +1,12 @@
 package com.jdc.mkt.relations;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
-@Entity
+//@Entity
 @Table(name = "product_tbl")
 public class Product {
 
