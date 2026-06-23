@@ -3,6 +3,10 @@ package com.jdc.mkt.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import com.jdc.mkt.model.listener.EnableTimeListener;
+import com.jdc.mkt.model.listener.Times;
+
+import jakarta.persistence.Embedded;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -13,7 +17,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "register_tbl")
-public class Register {
+public class Register implements EnableTimeListener{
 
 	@EmbeddedId
 	private RegisterPk id;
@@ -35,4 +39,7 @@ public class Register {
 	
 	private LocalDate rgDate;
 	private LocalTime rgTime;
+	
+	@Embedded
+	private Times times;
 }

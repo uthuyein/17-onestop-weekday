@@ -1,35 +1,27 @@
 package com.jdc.mkt.model;
 
-import com.jdc.mkt.model.listener.EnableTimeListener;
-import com.jdc.mkt.model.listener.Times;
-
 import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
-@NoArgsConstructor
-@RequiredArgsConstructor
-@Table(name = "course_tbl")
-public class Course implements EnableTimeListener{
+@Table(name = "driver_tbl")
+public class Driver {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@NonNull
 	@Column(nullable = false,length = 45)
 	private String name;
-	
-	@Embedded
-	private Times times;
-	
+	@Column(nullable = false,length = 45,unique = true)
+	private String nrc;
+	@Column(nullable = false,length = 45)
+	private String dob;
+	@Column(nullable = false,length = 45)
+	private String address;
 }

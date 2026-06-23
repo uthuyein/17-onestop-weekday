@@ -2,14 +2,21 @@ package com.jdc.mkt.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ExcludeDefaultListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
+@ExcludeDefaultListeners
+@NoArgsConstructor
+@RequiredArgsConstructor
 @Table(name = "address_tbl")
 public class Address {
 
@@ -18,9 +25,10 @@ public class Address {
 	private int id;
 	private String state;
 	
+	@NonNull
 	@Column(length = 45,nullable = false)
 	private String township;
-	
+	@NonNull
 	@Column(length = 45,nullable = false)
 	private String address;
 	

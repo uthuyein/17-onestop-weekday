@@ -4,10 +4,12 @@ import java.io.Serializable;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.ExcludeDefaultListeners;
 import lombok.Data;
 
 @Data
 @Embeddable
+@ExcludeDefaultListeners
 public class RegisterPk  implements Serializable{
 	private static final long serialVersionUID = 1L;
 

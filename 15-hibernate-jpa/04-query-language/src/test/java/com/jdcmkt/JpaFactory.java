@@ -1,4 +1,4 @@
-package com.jdc.mkt;
+package com.jdcmkt;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -12,8 +12,9 @@ public class JpaFactory {
 	
 	@BeforeAll
 	static void init() {
-		emf = Persistence.createEntityManagerFactory("student-proj");
+		emf = Persistence.createEntityManagerFactory("query-language");
 	}
 	
-	
+	@Test
+	void test() {}
 }

@@ -1,9 +1,6 @@
 package com.jdc.mkt.model;
 
-import com.jdc.mkt.model.listener.EnableTimeListener;
-import com.jdc.mkt.model.listener.Times;
-
-import jakarta.persistence.Embedded;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,14 +10,15 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "classroom_tbl")
-public class Classroom implements EnableTimeListener{
+@Table(name = "car_tbl")
+public class Car {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String name;
+	@Column(nullable = false,length = 45)
+	private String model;
+	@Column(nullable = false,length = 45)
+	private String brand;
 	
-	@Embedded
-	private Times times;
 }
