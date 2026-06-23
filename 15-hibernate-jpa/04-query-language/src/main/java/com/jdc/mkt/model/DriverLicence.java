@@ -3,6 +3,7 @@ package com.jdc.mkt.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,6 +14,9 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class DriverLicence extends Licence{
 
+	@OneToOne
+	private Driver driver;
+	
 	@Enumerated(EnumType.STRING)
 	private BloodType bloodType;
 	

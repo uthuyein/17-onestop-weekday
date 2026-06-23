@@ -17,8 +17,8 @@ public class Trip {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false,length = 45)
-	private String target;
+	private String pickupPoint;
 	@Column(nullable = false,length = 45)
-	private String destination;
+	private String dropOffPoint;
 	private double cost;
 }

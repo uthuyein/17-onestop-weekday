@@ -42,7 +42,7 @@ public class TripDetail {
 	private Status status;
 	
 	public enum Status{
-		Waiting,OnDrive,Finished,Canceled
+		PENDING,ONDRIVE,COMPLETED,CANCELED
 	}
 	
 }
