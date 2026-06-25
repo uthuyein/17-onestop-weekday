@@ -4,9 +4,11 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -28,8 +30,9 @@ public class Driver {
 	private String nrc;
 	@Column(nullable = false,length = 45)
 	private LocalDate dob;
-	@Column(length = 45)
-	private String address;
+	
+	@ManyToOne
+	private Address address;
 	
 	@OneToOne(mappedBy = "driver")
 	private DriverLicence driverLicence;

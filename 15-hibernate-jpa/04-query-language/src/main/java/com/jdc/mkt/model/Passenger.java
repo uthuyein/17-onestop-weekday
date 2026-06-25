@@ -1,11 +1,14 @@
 package com.jdc.mkt.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -22,5 +25,8 @@ public class Passenger {
 	private String name;
 	@Column(nullable = false,length = 45)
 	private String phone;
+	
+	@OneToMany(mappedBy = "passenger")
+	private List<TripDetail> tripDetails;
 	
 }

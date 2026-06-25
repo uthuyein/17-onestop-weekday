@@ -9,10 +9,14 @@ INSERT INTO passenger_tbl (name, phone) VALUES ('William Miller', '0977777777');
 INSERT INTO passenger_tbl (name, phone) VALUES ('Olivia Anderson', '0988888888');
 INSERT INTO passenger_tbl (name, phone) VALUES ('Noah Thomas', '0999999999');
 
+-- Address
+INSERT INTO address_tbl (state,township,street) VALUES('Yangon','Innsein','Kamayut');
+INSERT INTO address_tbl (state,township,street) VALUES('Yangon','Innsein','Hlaetan');
+
 -- Driver
-INSERT INTO driver_tbl (name, dob, nrc, address) VALUES( 'David Brown', '1985-05-10', '12/ABC(N)123456', 'Yangon');
-INSERT INTO driver_tbl (name, dob, nrc, address) VALUES( 'Michael Lee', '1990-08-20', '13/DEF(N)654321', 'Mandalay');
-INSERT INTO driver_tbl (name, dob, nrc, address) VALUES( 'Joe', '1992-03-21', '13/DEF(N)653322', null);
+INSERT INTO driver_tbl (name, dob, nrc, address_id) VALUES( 'David Brown', '1985-05-10', '12/ABC(N)123456',1);
+INSERT INTO driver_tbl (name, dob, nrc, address_id) VALUES( 'Michael Lee', '1990-08-20', '13/DEF(N)654321', 2);
+INSERT INTO driver_tbl (name, dob, nrc, address_id) VALUES( 'Joe', '1992-03-21', '13/DEF(N)653322', null);
 
 
 -- Driver Licence
