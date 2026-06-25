@@ -32,14 +32,14 @@ INSERT INTO car_licence_tbl(car_id, number, issueDate, validDate)VALUES(1, 'YGN-
 INSERT INTO car_licence_tbl(car_id, number, issueDate, validDate)VALUES(2, 'MDY-7B-5678', '2024-03-01', '2026-02-28');
 
 -- Trip
-INSERT INTO trip_tbl (pickupPoint, dropOffPoint, cost)VALUES('Yangon Airport', 'Sule Pagoda', 15000);
-INSERT INTO trip_tbl (pickupPoint, dropOffPoint, cost)VALUES( 'Mandalay Hill', 'Mandalay Palace', 10000);
-INSERT INTO trip_tbl (pickupPoint, dropOffPoint, cost)VALUES ('Shwedagon Pagoda', 'Yangon Central Station', 12000);
-INSERT INTO trip_tbl (pickupPoint, dropOffPoint, cost)VALUES ('Inya Lake', 'Junction Square', 8000);
-INSERT INTO trip_tbl (pickupPoint, dropOffPoint, cost)VALUES ('Aung Mingalar Bus Station', 'Yangon Airport', 18000);
-INSERT INTO trip_tbl (pickupPoint, dropOffPoint, cost)VALUES ('Mandalay Palace', 'U Bein Bridge', 20000);
-INSERT INTO trip_tbl (pickupPoint, dropOffPoint, cost)VALUES ('Pyin Oo Lwin Market', 'National Kandawgyi Gardens', 15000);
-INSERT INTO trip_tbl (pickupPoint, dropOffPoint, cost)VALUES ('Bagan Archaeological Zone', 'Nyaung U Airport', 25000);
+INSERT INTO trip_tbl (pickupPoint, dropOffPoint,tripDate,tripTime, cost)VALUES('Yangon Airport', 'Sule Pagoda','2026-01-01','09:10:11' ,15000);
+INSERT INTO trip_tbl (pickupPoint, dropOffPoint,tripDate,tripTime, cost)VALUES( 'Mandalay Hill', 'Mandalay Palace','2026-01-01','12:20:11 ',10000);
+INSERT INTO trip_tbl (pickupPoint, dropOffPoint,tripDate,tripTime, cost)VALUES ('Shwedagon Pagoda', 'Yangon Central Station','2026-01-21','10:31:00', 12000);
+INSERT INTO trip_tbl (pickupPoint, dropOffPoint,tripDate,tripTime, cost)VALUES ('Inya Lake', 'Junction Square','2026-01-22','09:10:00', 8000);
+INSERT INTO trip_tbl (pickupPoint, dropOffPoint,tripDate,tripTime, cost)VALUES ('Aung Mingalar Bus Station', 'Yangon Airport','2026-01-23','12:20:11', 18000);
+INSERT INTO trip_tbl (pickupPoint, dropOffPoint,tripDate,tripTime, cost)VALUES ('Mandalay Palace', 'U Bein Bridge','2026-01-25','02:22:30', 20000);
+INSERT INTO trip_tbl (pickupPoint, dropOffPoint,tripDate,tripTime, cost)VALUES ('Pyin Oo Lwin Market', 'National Kandawgyi Gardens','2026-01-25','05:11:22', 15000);
+INSERT INTO trip_tbl (pickupPoint, dropOffPoint,tripDate,tripTime, cost)VALUES ('Bagan Archaeological Zone', 'Nyaung U Airport','2026-01-27','09:44:00', 25000);
 
 -- Trip Detail
 INSERT INTO trip_detail_tbl(passenger_id, trip_id, car_licence_id, driver_licence_id, qty, status)VALUES(1, 1, 'YGN-5A-1234', 'DL-10001', 1, 'COMPLETED');

@@ -1,5 +1,8 @@
 package com.jdc.mkt.model;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,5 +23,8 @@ public class Trip {
 	private String pickupPoint;
 	@Column(nullable = false,length = 45)
 	private String dropOffPoint;
+	private LocalDate tripDate;
+	private LocalTime tripTime;
+	
 	private double cost;
 }

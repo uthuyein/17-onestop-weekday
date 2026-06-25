@@ -1,5 +1,6 @@
 package com.jdc.mkt.model;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import jakarta.persistence.Id;
@@ -12,6 +13,6 @@ public class Licence {
 
 	@Id
 	private String number;
-	private LocalDate issueDate;
-	private LocalDate validDate;
+	private Date issueDate;
+	private Date validDate;
 }
