@@ -9,6 +9,7 @@ import com.jdc.mkt.model.Car;
 import com.jdc.mkt.model.Driver;
 import com.jdcmkt.JpaFactory;
 
+@SuppressWarnings("unused")
 public class G_Custom_Join extends JpaFactory{
 	
 	

@@ -10,6 +10,7 @@ import com.jdc.mkt.model.TripDetail;
 import com.jdc.mkt.model.TripDetailPk;
 import com.jdcmkt.JpaFactory;
 
+@SuppressWarnings("unused")
 public class F_Default_Join extends JpaFactory{
 	
 	@Test

@@ -1,11 +1,11 @@
 package com.jdc.mkt.model.dto;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public record SelectNameLicenceAndValidDate(
 		String name,
 		String number,
-		Date validDate
+		LocalDate validDate
 		) {
 
 }

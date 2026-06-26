@@ -8,6 +8,7 @@ import com.jdc.mkt.model.Passenger;
 import com.jdc.mkt.model.Trip;
 import com.jdcmkt.JpaFactory;
 
+@SuppressWarnings("unused")
 public class H_TripTest extends JpaFactory{
 	
 	@Test

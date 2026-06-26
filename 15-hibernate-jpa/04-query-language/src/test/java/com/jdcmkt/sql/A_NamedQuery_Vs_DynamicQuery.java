@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import com.jdc.mkt.model.dto.SelectPassenger;
 import com.jdcmkt.JpaFactory;
 
+@SuppressWarnings("unchecked")
 public class A_NamedQuery_Vs_DynamicQuery extends JpaFactory{
 
 

@@ -17,6 +17,7 @@ public class SaleDetails {
 	@ManyToOne
 	private Product product;
 	
+	
 	@ManyToOne
 	private Sale sales;
 	private int qty;
