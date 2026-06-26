@@ -67,7 +67,7 @@ public class B_Sql_Jpql_Criteria extends JpaFactory {
 	@Test
 	@Order(1)
 	void selectWithSql() {
-		var sql = """
+		var sql = """ 
 				select d.name,dl.number,ad.township,ad.street,cl.number,c.model from car_tbl c
 				join car_licence_tbl cl on cl.car_id = c.id
 				join trip_detail_tbl tdt on tdt.car_licence_id = cl.number
