@@ -30,7 +30,7 @@ public class Customer {
 	private boolean isDelete;
 	
 	public enum MemberCard{
-		Default,Silver,Gold,Diamond
+		NONE,SILVER,GOLD,DIAMOND
 	}
 	
 	

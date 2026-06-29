@@ -23,15 +23,10 @@ public class Sale {
 	@MapsId("customerId")
 	private Customer customer;
 	
-	@Column(columnDefinition = "date default(current_date)")
-	private LocalDate saleDate;
-	
-	@Column(columnDefinition = "date default(current_time)")
-	private LocalTime saleTime;
-	
 	private Double subTotal;
 	private Double discount;
 	private Double total;
+	
 	@Column(columnDefinition = "tinyint(1) not null default 0")
 	private Boolean isDelete;
 	

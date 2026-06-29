@@ -1,9 +1,11 @@
 package com.jdc.mkt.model;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
 import lombok.Data;
 
 @Data
@@ -12,8 +14,14 @@ public class SaleDetailPk implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private SalePk id;
+	@Embedded
+	private SalePk salePk;
 	
-	@Column(name = "customer_id")
-	private int customerId;
+	@Column(name = "product_id")
+	private Integer productId;
+	
+	@Column(columnDefinition = "time default(current_time)")
+	private LocalTime saleTime;
+	
+	
 }
