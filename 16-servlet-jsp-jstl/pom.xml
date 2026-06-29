@@ -42,5 +42,6 @@
 	</build>
 	<modules>
 		<module>01-about-servlet</module>
+		<module>02-invoking-resources</module>
 	</modules>
 </project>
