@@ -41,6 +41,9 @@
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>11.0.26</version>
+				<configuration>
+					 <scan>2</scan>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -56,5 +59,6 @@
 		<module>01-about-servlet</module>
 		<module>02-invoking-resources</module>
 		<module>03-sope-with-jsp</module>
+		<module>04-listener-filter</module>
 	</modules>
 </project>
